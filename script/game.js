@@ -46,8 +46,17 @@ function draw() {
 	drawPaddle();
 
 	//There are four walls to bounce the ball off.
-	if(y + dy < ballRadius || y + dy > canvas.height-ballRadius) {  //check with top left and bottom edge
+	if(y + dy < ballRadius) {  //check with top edge.
 		dy = -dy;  //Reverse the direction of ball
+	}
+	else if(y + dy > canvas.height-ballRadius) {
+		if(x > paddleX && x < paddleX + paddleWidth) {
+			dy = -dy;
+		}
+		else {
+			alert("GAME OVER");
+			document.location.reload();
+		}
 	}
 
 	if(x + dx < ballRadius || x + dx > canvas.width-ballRadius) {  //check with left and right ones.                             
