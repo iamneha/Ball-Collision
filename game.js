@@ -19,14 +19,14 @@ function draw() {
 	drawBall();
 
 	//There are four walls to bounce the ball off.
-	if(y + dy < 0 || y + dy > canvas.height) {  //check with top left and bottom edge
+	if(y + dy < ballRadius || y + dy > canvas.height-ballRadius) {  //check with top left and bottom edge
 		dy = -dy;  //Reverse the direction of ball
 	}
 
-	if(x + dx < 0 || x + dx > canvas.width) {  //check with left and right ones.                             
+	if(x + dx < ballRadius || x + dx > canvas.width-ballRadius) {  //check with left and right ones.                             
 		dx = -dx;
 	}
-	
+
 	x += dx;
 	y += dy;
 }
